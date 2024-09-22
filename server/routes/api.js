@@ -1,13 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
-// Example route
-router.get('/api', (req, res) => {
-    res.send('API route working');
-});
 
-router.get('/', (req, res) => {
-    res.send('hello');
-});
+//controller
+const {register, listUser, editUser, deleteUser} = require('../controllers/auth');
+
+
+
+
+//Endpoint  //http://localhost:5001/api/auth
+//Method GET
+//@Access Publish
+
+// Example route
+router.get('/auth',listUser)
+
+router.post('/auth',register)
+
+router.put('/auth', editUser);
+
+router.delete('/auth',deleteUser)
+
 
 module.exports = router;
